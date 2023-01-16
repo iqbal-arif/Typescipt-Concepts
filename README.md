@@ -1,1 +1,1 @@
-# Typescipt-Concepts
+# Typescript-Concepts
