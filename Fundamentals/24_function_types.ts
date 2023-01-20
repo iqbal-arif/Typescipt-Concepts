@@ -4,12 +4,14 @@ interface Course {
   lessonsCount: number;
 }
 
+// Object Type Definition for returning Object
 type CreateCourse = (
   title: string,
   subtitle: string,
   lessonsCount: number
 ) => Course;
 
+// Function Type Definition
 type OnCourseCreated = (course: Course) => void;
 
 const createCourse = (
