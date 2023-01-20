@@ -1,0 +1,117 @@
+[33mcommit 52832818ec061197d84cd66b194d81a5512f14c8[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Fri Jan 20 10:13:07 2023 -0600
+
+    18_object_spread
+    19_object_destructuring
+    20_array_spread_destructuring
+    21_rest_arguments
+
+[33mcommit b23e586d36b77031eb705832d67c8d458009b7fa[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Fri Jan 20 09:00:05 2023 -0600
+
+    18_object_spread
+
+[33mcommit a7383a48c223d564c948d2a3cc3367beedc7cb4a[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Fri Jan 20 08:41:47 2023 -0600
+
+    17_default_function_argument
+
+[33mcommit 7a5519acacc8dd8b484829ceacb43883f8e2dfb2[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Fri Jan 20 08:37:25 2023 -0600
+
+    16_arrow_functions
+
+[33mcommit 708493a401cf336844290fd718d44c97246384b0[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Thu Jan 19 20:30:25 2023 -0600
+
+    15_default_exports
+
+[33mcommit bef25617aae91feb563396f9a8c94d16715dad0d[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Thu Jan 19 20:30:10 2023 -0600
+
+    15_default_exports
+
+[33mcommit 395ab926ee86fd0ee4957faff0d77ec917c172fc[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Thu Jan 19 20:01:14 2023 -0600
+
+    1. course_model
+    2. feature_1
+    3. feature_2
+    4. index
+
+[33mcommit d86f28c23986f5ba54d9920555662afcb48126b3[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Thu Jan 19 19:30:56 2023 -0600
+
+    12.1_modules_exports
+    12.2_modules_imports
+
+[33mcommit 3a4b459b424043415dd250ac512b206e8e8f9f21[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Thu Jan 19 16:42:28 2023 -0600
+
+    10_interfaces
+    11_type_assertions
+
+[33mcommit 012c3aa07d42e6097ea1c56bf5fb35f238db9a8d[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Thu Jan 19 16:13:31 2023 -0600
+
+    08_literal_types
+    09_type_aliases
+
+[33mcommit b6db87a08f834e667b4e835cabdcbadfa8f0d67c[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Thu Jan 19 14:47:27 2023 -0600
+
+    New File Structure and added new topics
+
+[33mcommit 10759aecc5e27475062ff3c262bcfe80981f3ffe[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Wed Jan 18 21:03:04 2023 -0600
+
+    Typescript Fundamentals:
+    2. Rearrange file structure
+
+[33mcommit 07e0c1697d42155361d2c4310f3986aa09ad7979[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Tue Jan 17 21:53:29 2023 -0600
+
+    Typescript Fundamentals:
+    1. Array Enums
+
+[33mcommit 084f6d42c9b72076fa426c2bef5a9b4e31722198[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Tue Jan 17 15:07:07 2023 -0600
+
+    Typescript Fundamentals:
+    1. why typescript.
+    2. primitive types.
+    3. null and undefined.
+
+[33mcommit cb6f5756997ec013de7104c1c01c6a3a0b90f364[m
+Author: Arif Iqbal <arif_iqbal@yahoo.com>
+Date:   Mon Jan 16 19:09:25 2023 -0600
+
+    Typescript Fundamentals:
+    1. Setting TS env.
+    2. TSC compiler.
+
+[33mcommit 3ed8fe69c45d6cc41ed90bb8d8ff950bd6f525b4[m
+Author: ARIF IQBAL <59909963+iqbal-arif@users.noreply.github.com>
+Date:   Mon Jan 16 15:25:42 2023 -0600
+
+    Update README.md
+
+[33mcommit 842d5afed8c8fc5d74c2dafdaeaff0c2795d3648[m
+Author: ARIF IQBAL <59909963+iqbal-arif@users.noreply.github.com>
+Date:   Mon Jan 16 15:24:54 2023 -0600
+
+    Initial commit

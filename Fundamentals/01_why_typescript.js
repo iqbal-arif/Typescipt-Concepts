@@ -1,4 +1,5 @@
 var courseName = 'Typescript Bootcamp v3';
+debugger;
 printCourseName(courseName);
 function printCourseName(name) {
     console.log("The course name is ".concat(name.toUpperCase()));
@@ -16,5 +17,7 @@ else {
 // var is a global variable where is let and const is block variable
 // printCourseTitle(courseSubTitle);
 function printCourseTitle(name) {
+    debugger;
     console.log("The course title is ".concat(name.toUpperCase()));
 }
+//# sourceMappingURL=01_why_typescript.js.map

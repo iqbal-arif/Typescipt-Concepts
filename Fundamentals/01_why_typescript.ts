@@ -1,5 +1,6 @@
 const courseName = 'Typescript Bootcamp v3';
 
+debugger;
 printCourseName(courseName);
 
 function printCourseName(name: string) {
@@ -22,5 +23,6 @@ if (courseTitle) {
 // printCourseTitle(courseSubTitle);
 
 function printCourseTitle(name: string) {
+  debugger;
   console.log(`The course title is ${name.toUpperCase()}`);
 }

@@ -9,3 +9,12 @@ Installation:
 6. Auto Compile no Emit on error: tsc --w --noEmitOnError [filename]
 7. tsc --noImplicitAny [filename] can be used to check for variable type.
 8. tsc --strictNullChecks [filename]
+9. tsc --sourceMap [filename] :for debugging
+   10.Debugging with NodeJS
+   1. Run tsc --sourceMap 01_why_typescript.ts
+   2. node --inspect 01_why_typescript.js
+   3. To go step by step in debugger for node process
+   4. node --inspect-brk 01_why_typescript.js
+   5. Ctrl+Shift+P => Debug:Attached to Node Process
+   6. The debugger will open
+   7. Once the process is complete it will exit out.
