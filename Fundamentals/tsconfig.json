@@ -1,6 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES5"
+    "target": "ES5",
+    "rootDir": "src",
+    "outDir": "dist"
   }
   //   "files": ["./14_module_reexports/index.ts"]
+  //   "include": ["./14_module_reexports/index.ts"]
+  // "include": ["src/**/*"],
+  //   "exclude": ["src/**/02*"]
 }
