@@ -5,7 +5,7 @@ lessonCount = 'Any type means any Type is possible';
 lessonCount = [10, 45, 30];
 // Object type
 lessonCount = {
-    typeCount: 25
+    typeCount: 25,
 };
 // Boolean type
 lessonCount = true;

@@ -4,7 +4,7 @@ function createCourse(title, subtitle, lessonsCount) {
     return {
         title: title,
         subtitle: subtitle,
-        lessonsCount: lessonsCount
+        lessonsCount: lessonsCount,
     };
 }
 var result = createCourse('Typescript Bootcamp', 'Learn the language fundamentals', 100);

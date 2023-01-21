@@ -3,5 +3,5 @@ var title = 'Typescript Bootcamp', subtitle = 'Learn the language fundamentals, 
 var course = {
     title: title,
     subtitle: subtitle,
-    lessonsCount: lessonsCount
+    lessonsCount: lessonsCount,
 };

@@ -3,13 +3,13 @@
 var course = {
     title: 'Typescript Language',
     subtitle: 'Beginner to Intermediate',
-    lessonsCount: 8
+    lessonsCount: 8,
 };
 // Course 2
 var otherCourse = {
     title: 'Typescript Advanced Language',
     subtitle: 'Advanced',
-    rating: 9
+    rating: 9, // this works even though interface extension is defined later in the part.
 };
 /******************/
 /****Use Interface for Objects****/

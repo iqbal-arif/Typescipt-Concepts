@@ -4,4 +4,5 @@ uniqueIdentifier = '42asd5852-85asdf285';
 var keys = ['This', 123];
 // Best Use of UNION Type
 var courseId = 1000;
+// let courseId: number = 1000;
 courseId = null;

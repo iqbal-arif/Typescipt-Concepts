@@ -1,10 +1,10 @@
 var course1 = {
     title: 'Typescript Bootcamp',
-    lessonsCount: 100
+    lessonsCount: 100,
 };
 var course2 = {
     title: 'Angular For Beginners',
-    lessonsCount: 20
+    lessonsCount: 20,
 };
 function printCourses(message) {
     var courses = [];
@@ -13,8 +13,8 @@ function printCourses(message) {
     }
     console.log(message);
     for (var _a = 0, courses_1 = courses; _a < courses_1.length; _a++) {
-        var course = courses_1[_a];
-        console.log(course.title);
+        var course_1 = courses_1[_a];
+        console.log(course_1.title);
     }
 }
 // printCourses("Welcome to the Angular University", [course1, course2]);

@@ -1,3 +1,5 @@
+// TYPE INTERSECTION
+
 interface HasId {
   id: string;
 }

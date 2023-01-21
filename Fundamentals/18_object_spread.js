@@ -13,9 +13,10 @@ var course = {
     title: 'Typescript Bootcamp',
     subtitle: 'Learn the language fundamentals, build practical projects',
     stats: {
-        lessonsCount: 10
-    }
+        lessonsCount: 10,
+    },
 };
+// **** SPREAD OPERATOR TO Create Shallow copy of an object ****
 var newCourse = __assign({}, course);
 console.log(newCourse);
 course.stats.lessonsCount = 100;

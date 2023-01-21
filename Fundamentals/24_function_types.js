@@ -3,7 +3,7 @@ var createCourse = function (title, subtitle, lessonsCount, callback) {
     var course = {
         title: title,
         subtitle: subtitle,
-        lessonsCount: lessonsCount
+        lessonsCount: lessonsCount,
     };
     callback(course);
     return course;

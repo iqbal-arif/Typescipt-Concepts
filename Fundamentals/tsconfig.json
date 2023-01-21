@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "target": "ES5"
+  }
+  //   "files": ["./14_module_reexports/index.ts"]
+}

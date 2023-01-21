@@ -17,7 +17,7 @@ var courseObject = {
     title: 'Typescript',
     //   type: 3,
     // Instead of number we use ENUMS
-    type: CourseType.HIDDEN
+    type: CourseType.HIDDEN,
 };
 console.log(courseObject);
 // Assigning String to ENUMS
@@ -30,6 +30,6 @@ var CourseTypeStr;
 })(CourseTypeStr || (CourseTypeStr = {}));
 var linuxUsers = {
     title: 'Linux IT Department',
-    type: CourseTypeStr.USER
+    type: CourseTypeStr.USER,
 };
 console.log(linuxUsers);

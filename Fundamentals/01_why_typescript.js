@@ -7,12 +7,12 @@ function printCourseName(name) {
 //let  vs const vs var
 var courseTitle = 'Typescript Advanced v3';
 if (courseTitle) {
-    var subTitle = 'Bootcamp Beginner to Advanced Level';
-    printCourseTitle(subTitle);
+    var subTitle_1 = 'Bootcamp Beginner to Advanced Level';
+    printCourseTitle(subTitle_1);
 }
 else {
-    var subTitle = 'Typescript Intermediate v2';
-    printCourseTitle(subTitle);
+    var subTitle_2 = 'Typescript Intermediate v2';
+    printCourseTitle(subTitle_2);
 }
 // var is a global variable where is let and const is block variable
 // printCourseTitle(courseSubTitle);
@@ -20,4 +20,3 @@ function printCourseTitle(name) {
     debugger;
     console.log("The course title is ".concat(name.toUpperCase()));
 }
-//# sourceMappingURL=01_why_typescript.js.map
