@@ -32,4 +32,11 @@ Installation:
    1. "files": ["25_tuples.ts", "28_never_type.ts"]
    2. For Multiple files enter the file [index.ts] that has all imports
       "files": ["./14_module_reexports/index.ts"]
-4.
+4. To Compile all files in a specific folder
+   "include": ["src/**/*"] means src folder then ** all folders and \* all files
+   if ["src/**/?"] is used that means single character
+   if ["src/**/01*"] means all files that starts with 01
+5. To Exclude files from Compilation
+   "exclude": ["src/**/02*"] means exclude this specific file in the project
+6. RootDir: "rootDir": "Fundamentals" : means will compile everything in the rootDir.
+7.
