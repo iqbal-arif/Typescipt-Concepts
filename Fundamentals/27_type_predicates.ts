@@ -1,3 +1,8 @@
+// Type Narrowing
+if (typeof unknownValue == 'string') {
+  let value14: string = unknownValue;
+}
+
 interface Course {
   readonly title: string;
   subtitle: string;
@@ -15,7 +20,7 @@ if (isCourse(course)) {
   //   course.subtitle;
 }
 //******value is Course turns function into PREDICATE FUNCTION*****
-// This is called as ***TYPE PREDICATE****
+// This is called as ***TYPE PREDICATE**** is type narrowing method
 // Returns "BOOLEAN" "TRUE"
 function isCourse(value: unknown): value is Course {
   const course = value as Course;
