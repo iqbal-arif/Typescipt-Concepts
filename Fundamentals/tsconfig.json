@@ -2,10 +2,19 @@
   "compilerOptions": {
     "target": "ES5",
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "module": "CommonJS",
+    // "noLib": true, //To not use ES Document or Windows lib
+    // "lib": [  //To use ES Document and/or Windows lib
+    //     "ES2015", "DOM"
+    // ]
+    // Points to the Directory where the imports in our program should point when relative import paths are not used
+    "baseUrl": "src",
+    "skipLibCheck": true,
+    "types": ["express"]
   }
-  //   "files": ["./14_module_reexports/index.ts"]
-  //   "include": ["./14_module_reexports/index.ts"]
+  //   "files": ["./14_module_reexports/index.ts"],
+  //   "include": ["./14_module_reexports/index.ts"],
   // "include": ["src/**/*"],
   //   "exclude": ["src/**/02*"]
 }
