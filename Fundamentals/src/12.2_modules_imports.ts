@@ -3,6 +3,8 @@ import { PAGE_SIZE, COURSE, Course } from './12.1_modules_exports';
 
 const pageSize = PAGE_SIZE;
 
+import { HELLO_WORLD } from './32_plain_javascript';
+
 // Importing the 14_module_reexports Modules
 // This is how Re-EXPORT works for the third party package
 

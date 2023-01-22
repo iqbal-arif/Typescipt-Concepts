@@ -11,7 +11,9 @@
     // Points to the Directory where the imports in our program should point when relative import paths are not used
     "baseUrl": "src",
     "skipLibCheck": true,
-    "types": ["express"]
+    // "types": ["express"]//to allow express types
+    "allowJs": true, // Allows JS imports
+    "checkJs": true // Acts like TS check for JS files
   }
   //   "files": ["./14_module_reexports/index.ts"],
   //   "include": ["./14_module_reexports/index.ts"],
