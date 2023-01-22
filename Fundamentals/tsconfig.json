@@ -13,7 +13,12 @@
     "skipLibCheck": true,
     // "types": ["express"]//to allow express types
     "allowJs": true, // Allows JS imports
-    "checkJs": true // Acts like TS check for JS files
+    "checkJs": true, // Acts like TS check for JS files
+    "sourceMap": true, // Will output the  source file
+    "noEmitOnError": true, // Not to compile and emit output file if error occurs.
+    "strictNullChecks": true,
+    "noEmit": false, // To check for error but don't want to generate output files at all.
+    "removeComments": true // to remove comments in JS complied file.
   }
   //   "files": ["./14_module_reexports/index.ts"],
   //   "include": ["./14_module_reexports/index.ts"],

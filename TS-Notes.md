@@ -45,3 +45,11 @@ Installation:
 10. Express Type: npm install -D @types/express
 11. SkipLibCheck: If express types are not up to date, to avoid compilation error
     or bypass; use "skipLibCheck":true
+12. "baseUrl": "src",
+13. "skipLibCheck": true,
+14. "types": ["express"]//to allow express types
+15. "allowJs": true, // Allows JS imports
+16. "checkJs": true // Acts like TS check for JS files
+17. "sourceMap": true, // Will output the source file
+18. "noEmitOnError": true, // Not to compile and emit output file if error occurs.
+19. "noEmit": false, // To check for error but don't want to generate output files at all.
