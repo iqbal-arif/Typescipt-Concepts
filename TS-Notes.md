@@ -38,5 +38,10 @@ Installation:
    if ["src/**/01*"] means all files that starts with 01
 5. To Exclude files from Compilation
    "exclude": ["src/**/02*"] means exclude this specific file in the project
-6. RootDir: "rootDir": "Fundamentals" : means will compile everything in the rootDir.
-7.
+6. RootDir: "rootDir": "src" : means will compile everything in the rootDir.
+7. OutDir: "outDir": "dist" : compiles to destination directory
+8. Module:
+9. Third-Party Modules: npm install express
+10. Express Type: npm install -D @types/express
+11. SkipLibCheck: If express types are not up to date, to avoid compilation error
+    or bypass; use "skipLibCheck":true
