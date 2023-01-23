@@ -33,7 +33,7 @@ class Course {
   age() {
     const ageInMs = new Date().getTime() - this.creationDt.getTime();
     //   Age in Ms is divided by 1000s then divided by 60 mins and then 24 hr
-    return ageInMs / 1000 / 60 / 24;
+    return Math.round(ageInMs / 1000 / 60 / 24);
   }
 }
 
