@@ -6,7 +6,8 @@ call date constructor with word new to instantiate an Object that brings data me
 3. Angular is a class based framework
 
 ***** OOP ****
-1. INHERITANCE
+1. ENCAPSULATION: Data is made PRIVATE by adding private next to it. But it can be modified with the class object
+2. INHERITANCE
 2. POLYMORPHISM
 3. 
 */
@@ -17,9 +18,9 @@ date;
 /********** FIRST CLASS **********/
 
 class Course {
-  title: string;
-  subtitle: string;
-  creationDt: Date;
+  private title: string;
+  private subtitle: string;
+  private creationDt: Date;
 
   //   Constructor Function Initialize the class
   //   It is called when instances of the class are set
