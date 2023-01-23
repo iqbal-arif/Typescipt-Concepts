@@ -12,8 +12,8 @@ call date constructor with word new to instantiate an Object that brings data me
 3. 
 */
 
-const date = new Date();
-date;
+// const date = new Date();
+// date;
 
 /********** FIRST CLASS **********/
 
@@ -36,16 +36,35 @@ class Course {
   */
   //   If the Value Members keys and values are same then we can combine everything and simplify it as follows
   constructor(
-    private title: string,
-    private subtitle: string,
-    private creationDt: Date
+    private _title: string,
+    // Variable type definition with :string in front of it, or
+    // private subtitle: string,
+    // Value can be initialized without type definition :string
+    private subtitle = '',
+    // Date here is used as interface in Typescript language. It is infer as Date value
+    // private creationDt = Date
+    // This can be initialized while inferring as Date as well
+    private creationDt = new Date(2020, 1, 1)
   ) {}
 
   changeTitle() {
     this.title = '';
+    // this.subtitle;
   }
+
+  /**SETTER**/
+
+  set title(newTitle: string) {
+    if (!newTitle) {
+      throw 'Title cannot be empty';
+    }
+    this._title = newTitle;
+  }
+
   // Methods also refer as Behavior
-  age() {
+  /***ADDING GET NEXT TO METHOD ALLOWS IT BE USED AS .GET METHOD: SEE NOTE I */
+  /**GETTER**/
+  get age() {
     const ageInMs = new Date().getTime() - this.creationDt.getTime();
     //   Age in Ms is divided by 1000s then divided by 60 mins and then 24 hr
     return Math.round(ageInMs / 1000 / 60 / 24);
@@ -54,14 +73,29 @@ class Course {
 
 // Creating an Instance of Course with Class Course
 
-const course = new Course(
-  'Typescript Bootcamp',
-  'Learn the language fundamentals, build practical projects',
-  new Date(2000, 1, 1)
-);
+// This Instantiate is without Initializing Value in constructor function.
+// const course = new Course(
+//   'Typescript Bootcamp',
+//   'Learn the language fundamentals, build practical projects',
+//   new Date(2000, 1, 1)
+// );
+// This one is after Initializing while keeping the Value Types of TS.
+const course = new Course('Typescript Bootcamp');
 
-console.log(course.age());
+// ****** NOTE II ****
+
+// course.title = 'New Value';
+
 /*
+THIS IS BEFORE USING GET AGE()
+console.log(course.age());
+*/
+// ****** NOTE I ****
+console.log(course.age);
+console.log(course);
+/*
+
+
 import {HasId, HasTitle} from "./02-interfaces";
 import {CoursesService} from "./03-singleton";
 
