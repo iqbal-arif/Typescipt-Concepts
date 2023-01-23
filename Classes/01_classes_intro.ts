@@ -18,6 +18,9 @@ date;
 /********** FIRST CLASS **********/
 
 class Course {
+  //Defining the TYPES for the VARIABLE
+  /*
+   **** SIMPLIFYING IT ****  
   private title: string;
   private subtitle: string;
   private creationDt: Date;
@@ -29,7 +32,18 @@ class Course {
     this.subtitle = subtitle;
     this.creationDt = creationDt;
   }
+   **** SIMPLIFYING IT ****  
+  */
+  //   If the Value Members keys and values are same then we can combine everything and simplify it as follows
+  constructor(
+    private title: string,
+    private subtitle: string,
+    private creationDt: Date
+  ) {}
 
+  changeTitle() {
+    this.title = '';
+  }
   // Methods also refer as Behavior
   age() {
     const ageInMs = new Date().getTime() - this.creationDt.getTime();
