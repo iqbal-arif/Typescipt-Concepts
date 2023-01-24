@@ -12,12 +12,14 @@ call date constructor with word new to instantiate an Object that brings data me
 3. 
 */
 
+import { HasId, HasTitle } from './02_interfaces';
+
 // const date = new Date();
 // date;
 
 /********** FIRST CLASS **********/
-
-class Course {
+// Added Interface HasId from another file
+abstract class Course implements HasId, HasTitle {
   /***STATIC PROPERTIES**/
   // To show properties are static use UpperCase
   static TOTAL_COURSES = 0;
@@ -42,23 +44,29 @@ class Course {
   */
   //   If the Value Members keys and values are same then we can combine everything and simplify it as follows
   constructor(
-    private _title: string,
-    private price: number,
+    public id: string,
+    // PRIVATE value are visible to its own class; Not visible to subclasses and outside class.
+    // private _title: string,
+    protected _title: string,
+    protected price: number,
     // Variable type definition with :string in front of it, or
     // private subtitle: string,
     // Value can be initialized without type definition :string
-    private subtitle = '',
+    protected subtitle = '',
     // Date here is used as interface in Typescript language. It is infer as Date value
     // private creationDt = Date
     // This can be initialized while inferring as Date as well
-    private creationDt = new Date(2020, 1, 1)
+    protected creationDt = new Date(2020, 1, 1)
   ) {
     // Calling price Validator in Constructor Function
     this.validate();
     // Accessing STATIC Property through CLASS Course
     Course.TOTAL_COURSES++;
   }
-
+  // This code is added for interface HasId
+  printId() {
+    console.log(`The course id is ${this.id}`);
+  }
   // Method to validate that price is not zero
   // protected means it is available to it's class and all sub-classes
   protected validate() {
@@ -68,6 +76,10 @@ class Course {
       throw 'Price must be larger than zero';
     }
   }
+
+  // ABSTRACT Class cannot have any IMPLEMENTATION or action in the function if prefixed by Abstract. It is just a Template. The below code will give error due to implementation in it
+  // protected abstract quantify(){console.log(this.age)};
+  protected abstract quantify();
   /**STATIC METHOD**/
   // It is like an plain function with association to class Course NAME. Otherwise it won't work.
   static printTitle(course: Course) {
@@ -106,14 +118,31 @@ class Course {
 /**CLASS INHERITANCE**/
 // Using inheritance to add a Free Course Class and utilizing parent properties.
 class FreeCourse extends Course {
-  constructor(title: string, subtitle = '', creationDt = new Date(2020, 1, 1)) {
-    super(title, 0, subtitle, creationDt); // 0 is the price
+  // id:string added for interface HasId
+  constructor(
+    id: string,
+    title: string,
+    subtitle = '',
+    creationDt = new Date(2020, 1, 1)
+  ) {
+    // id:string added for interface HasId
+
+    super(id, title, 0, subtitle, creationDt); // 0 is the price
   }
   // Validator Method
-  validate(): void {
+  protected validate(): void {
     console.log('Called FreeCourse validate()');
   }
+  // This code is added due to Abstract Classification.
+  protected quantify() {
+    console.log('This added because Abstract Class has abstract method');
+  }
+  // This code is added for interface HasId
 }
+
+/**ABSTRACT CLASS */
+// Is a TEMPLATE for Class
+// Cannot be instantiated
 
 /**Accessing Private Static Property from outside a Class */
 // Course.TOTAL_COURSES; //error
@@ -126,13 +155,15 @@ class FreeCourse extends Course {
 //   new Date(2000, 1, 1)
 // );
 // This one is after Initializing while keeping the Value Types of TS.
-const course = new Course(Course.TYPESCRIPT_TITLE, 100);
-console.log(course.title);
-
-const angular = new FreeCourse('Angular For Beginner');
+// Activate these 2 codes as the are used in the examples above. It is commented due Abstract Class. As by definition Abstract Class cannot be instantiated.
+// const course = new Course(Course.TYPESCRIPT_TITLE, 100);
+// console.log(course.title);
+// 208A is an Id added for interface HasId
+const angular = new FreeCourse('208A', 'Angular For Beginner');
 // Static Function Access outside the Class 0bject
 Course.printTitle(angular);
 
+// Cannot be called from instance of
 // ****** NOTE II ****
 
 // course.title = 'New Value';
@@ -142,8 +173,9 @@ THIS IS BEFORE USING GET AGE()
 console.log(course.age());
 */
 // ****** NOTE I ****
-console.log(course.age);
-console.log(course);
+// Activate these 2 codes as the are used in the examples above.
+// console.log(course.age);
+// console.log(course);
 
 console.log(Course.TOTAL_COURSES);
 
