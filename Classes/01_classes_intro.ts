@@ -7,7 +7,7 @@ call date constructor with word new to instantiate an Object that brings data me
 
 ***** OOP ****
 1. ENCAPSULATION: Data is made PRIVATE by adding private next to it. But it can be modified with the class object
-2. INHERITANCE
+2. INHERITANCE: Code reuse mechanism in OOP
 2. POLYMORPHISM
 3. 
 */
@@ -43,6 +43,7 @@ class Course {
   //   If the Value Members keys and values are same then we can combine everything and simplify it as follows
   constructor(
     private _title: string,
+    private price: number,
     // Variable type definition with :string in front of it, or
     // private subtitle: string,
     // Value can be initialized without type definition :string
@@ -52,13 +53,24 @@ class Course {
     // This can be initialized while inferring as Date as well
     private creationDt = new Date(2020, 1, 1)
   ) {
+    // Calling price Validator in Constructor Function
+    this.validate();
     // Accessing STATIC Property through CLASS Course
     Course.TOTAL_COURSES++;
   }
 
+  // Method to validate that price is not zero
+  // protected means it is available to it's class and all sub-classes
+  protected validate() {
+    console.log('Called Course validate()');
+
+    if (this.price <= 0) {
+      throw 'Price must be larger than zero';
+    }
+  }
   /**STATIC METHOD**/
   // It is like an plain function with association to class Course NAME. Otherwise it won't work.
-  static printTitle() {
+  static printTitle(course: Course) {
     //to use
     console.log(`The title of the course ${course.title}`);
   }
@@ -91,6 +103,18 @@ class Course {
   }
 }
 
+/**CLASS INHERITANCE**/
+// Using inheritance to add a Free Course Class and utilizing parent properties.
+class FreeCourse extends Course {
+  constructor(title: string, subtitle = '', creationDt = new Date(2020, 1, 1)) {
+    super(title, 0, subtitle, creationDt); // 0 is the price
+  }
+  // Validator Method
+  validate(): void {
+    console.log('Called FreeCourse validate()');
+  }
+}
+
 /**Accessing Private Static Property from outside a Class */
 // Course.TOTAL_COURSES; //error
 // Creating an Instance of Course with Class Course
@@ -102,8 +126,12 @@ class Course {
 //   new Date(2000, 1, 1)
 // );
 // This one is after Initializing while keeping the Value Types of TS.
-const course = new Course(Course.TYPESCRIPT_TITLE);
-const angular = new Course('Angular For Beginner');
+const course = new Course(Course.TYPESCRIPT_TITLE, 100);
+console.log(course.title);
+
+const angular = new FreeCourse('Angular For Beginner');
+// Static Function Access outside the Class 0bject
+Course.printTitle(angular);
 
 // ****** NOTE II ****
 
@@ -119,8 +147,6 @@ console.log(course);
 
 console.log(Course.TOTAL_COURSES);
 
-console.log(angular.title);
-Course.printTitle();
 /*
 
 import {HasId, HasTitle} from "./02-interfaces";

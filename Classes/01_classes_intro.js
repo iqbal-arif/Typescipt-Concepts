@@ -7,10 +7,25 @@ call date constructor with word new to instantiate an Object that brings data me
 
 ***** OOP ****
 1. ENCAPSULATION: Data is made PRIVATE by adding private next to it. But it can be modified with the class object
-2. INHERITANCE
+2. INHERITANCE: Code reuse mechanism in OOP
 2. POLYMORPHISM
 3.
 */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 // const date = new Date();
 // date;
 /********** FIRST CLASS **********/
@@ -32,7 +47,7 @@ var Course = /** @class */ (function () {
      **** SIMPLIFYING IT ****
     */
     //   If the Value Members keys and values are same then we can combine everything and simplify it as follows
-    function Course(_title, 
+    function Course(_title, price, 
     // Variable type definition with :string in front of it, or
     // private subtitle: string,
     // Value can be initialized without type definition :string
@@ -44,14 +59,24 @@ var Course = /** @class */ (function () {
         if (subtitle === void 0) { subtitle = ''; }
         if (creationDt === void 0) { creationDt = new Date(2020, 1, 1); }
         this._title = _title;
+        this.price = price;
         this.subtitle = subtitle;
         this.creationDt = creationDt;
+        // Calling price Validator in Constructor Function
+        this.validate();
         // Accessing STATIC Property through CLASS Course
         Course.TOTAL_COURSES++;
     }
+    // Method to validate that price is not zero
+    Course.prototype.validate = function () {
+        console.log('Called Course validate()');
+        if (this.price <= 0) {
+            throw 'Price must be larger than zero';
+        }
+    };
     /**STATIC METHOD**/
-    // It is like an plain function wtih association to class Course NAME. Otherwise it won't work.
-    Course.printTitle = function () {
+    // It is like an plain function with association to class Course NAME. Otherwise it won't work.
+    Course.printTitle = function (course) {
         //to use
         console.log("The title of the course ".concat(course.title));
     };
@@ -93,6 +118,21 @@ var Course = /** @class */ (function () {
     Course.TYPESCRIPT_TITLE = 'Typescript Bootcamp';
     return Course;
 }());
+/**CLASS INHERITANCE**/
+// Using inheritance to add a Free Course Class and utilizing parent properties.
+var FreeCourse = /** @class */ (function (_super) {
+    __extends(FreeCourse, _super);
+    function FreeCourse(title, subtitle, creationDt) {
+        if (subtitle === void 0) { subtitle = ''; }
+        if (creationDt === void 0) { creationDt = new Date(2020, 1, 1); }
+        return _super.call(this, title, 0, subtitle, creationDt) || this;
+    }
+    // Validator Method
+    FreeCourse.prototype.validate = function () {
+        console.log('Called FreeCourse validate()');
+    };
+    return FreeCourse;
+}(Course));
 /**Accessing Private Static Property from outside a Class */
 // Course.TOTAL_COURSES; //error
 // Creating an Instance of Course with Class Course
@@ -103,8 +143,8 @@ var Course = /** @class */ (function () {
 //   new Date(2000, 1, 1)
 // );
 // This one is after Initializing while keeping the Value Types of TS.
-var course = new Course(Course.TYPESCRIPT_TITLE);
-var angular = new Course('Angular For Beginner');
+var course = new Course(Course.TYPESCRIPT_TITLE, 100);
+var angular = new FreeCourse('Angular For Beginner');
 // ****** NOTE II ****
 // course.title = 'New Value';
 /*
@@ -115,8 +155,9 @@ console.log(course.age());
 console.log(course.age);
 console.log(course);
 console.log(Course.TOTAL_COURSES);
-console.log(angular.title);
-Course.printTitle();
+console.log(course.title);
+// Static Function Access outside the Class 0bject
+Course.printTitle(angular);
 /*
 
 import {HasId, HasTitle} from "./02-interfaces";
