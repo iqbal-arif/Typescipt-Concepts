@@ -13,6 +13,7 @@ call date constructor with word new to instantiate an Object that brings data me
 */
 
 import { HasId, HasTitle } from './02_interfaces';
+import { CoursesService } from './03_singleton';
 
 // const date = new Date();
 // date;
@@ -60,6 +61,9 @@ abstract class Course implements HasId, HasTitle {
   ) {
     // Calling price Validator in Constructor Function
     this.validate();
+
+    // This code is added for SINGLETON INSTANTIATION
+    const service = CoursesService.instance();
     // Accessing STATIC Property through CLASS Course
     Course.TOTAL_COURSES++;
   }
@@ -178,6 +182,8 @@ console.log(course.age());
 // console.log(course);
 
 console.log(Course.TOTAL_COURSES);
+// This code is added for Singleton Instantiation  to check if it going to run again or not.
+CoursesService.instance();
 
 /*
 

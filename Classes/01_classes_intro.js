@@ -1,3 +1,4 @@
+"use strict";
 /*
 1. date is a class
 call date constructor with word new to instantiate an Object that brings data methods, such as, getDate, getMonth,etc.
@@ -26,9 +27,12 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+Object.defineProperty(exports, "__esModule", { value: true });
+var _03_singleton_1 = require("./03_singleton");
 // const date = new Date();
 // date;
 /********** FIRST CLASS **********/
+// Added Interface HasId from another file
 var Course = /** @class */ (function () {
     //Defining the TYPES for the VARIABLE
     /*
@@ -47,7 +51,10 @@ var Course = /** @class */ (function () {
      **** SIMPLIFYING IT ****
     */
     //   If the Value Members keys and values are same then we can combine everything and simplify it as follows
-    function Course(_title, price, 
+    function Course(id, 
+    // PRIVATE value are visible to its own class; Not visible to subclasses and outside class.
+    // private _title: string,
+    _title, price, 
     // Variable type definition with :string in front of it, or
     // private subtitle: string,
     // Value can be initialized without type definition :string
@@ -58,16 +65,24 @@ var Course = /** @class */ (function () {
     creationDt) {
         if (subtitle === void 0) { subtitle = ''; }
         if (creationDt === void 0) { creationDt = new Date(2020, 1, 1); }
+        this.id = id;
         this._title = _title;
         this.price = price;
         this.subtitle = subtitle;
         this.creationDt = creationDt;
         // Calling price Validator in Constructor Function
         this.validate();
+        // This code is added for SINGLETON INSTANTIATION
+        var service = _03_singleton_1.CoursesService.instance();
         // Accessing STATIC Property through CLASS Course
         Course.TOTAL_COURSES++;
     }
+    // This code is added for interface HasId
+    Course.prototype.printId = function () {
+        console.log("The course id is ".concat(this.id));
+    };
     // Method to validate that price is not zero
+    // protected means it is available to it's class and all sub-classes
     Course.prototype.validate = function () {
         console.log('Called Course validate()');
         if (this.price <= 0) {
@@ -122,17 +137,26 @@ var Course = /** @class */ (function () {
 // Using inheritance to add a Free Course Class and utilizing parent properties.
 var FreeCourse = /** @class */ (function (_super) {
     __extends(FreeCourse, _super);
-    function FreeCourse(title, subtitle, creationDt) {
+    // id:string added for interface HasId
+    function FreeCourse(id, title, subtitle, creationDt) {
+        // id:string added for interface HasId
         if (subtitle === void 0) { subtitle = ''; }
         if (creationDt === void 0) { creationDt = new Date(2020, 1, 1); }
-        return _super.call(this, title, 0, subtitle, creationDt) || this;
+        return _super.call(this, id, title, 0, subtitle, creationDt) || this;
     }
     // Validator Method
     FreeCourse.prototype.validate = function () {
         console.log('Called FreeCourse validate()');
     };
+    // This code is added due to Abstract Classification.
+    FreeCourse.prototype.quantify = function () {
+        console.log('This added because Abstract Class has abstract method');
+    };
     return FreeCourse;
 }(Course));
+/**ABSTRACT CLASS */
+// Is a TEMPLATE for Class
+// Cannot be instantiated
 /**Accessing Private Static Property from outside a Class */
 // Course.TOTAL_COURSES; //error
 // Creating an Instance of Course with Class Course
@@ -143,8 +167,14 @@ var FreeCourse = /** @class */ (function (_super) {
 //   new Date(2000, 1, 1)
 // );
 // This one is after Initializing while keeping the Value Types of TS.
-var course = new Course(Course.TYPESCRIPT_TITLE, 100);
-var angular = new FreeCourse('Angular For Beginner');
+// Activate these 2 codes as the are used in the examples above. It is commented due Abstract Class. As by definition Abstract Class cannot be instantiated.
+// const course = new Course(Course.TYPESCRIPT_TITLE, 100);
+// console.log(course.title);
+// 208A is an Id added for interface HasId
+var angular = new FreeCourse('208A', 'Angular For Beginner');
+// Static Function Access outside the Class 0bject
+Course.printTitle(angular);
+// Cannot be called from instance of
 // ****** NOTE II ****
 // course.title = 'New Value';
 /*
@@ -152,12 +182,11 @@ THIS IS BEFORE USING GET AGE()
 console.log(course.age());
 */
 // ****** NOTE I ****
-console.log(course.age);
-console.log(course);
+// Activate these 2 codes as the are used in the examples above.
+// console.log(course.age);
+// console.log(course);
 console.log(Course.TOTAL_COURSES);
-console.log(course.title);
-// Static Function Access outside the Class 0bject
-Course.printTitle(angular);
+_03_singleton_1.CoursesService.instance();
 /*
 
 import {HasId, HasTitle} from "./02-interfaces";
