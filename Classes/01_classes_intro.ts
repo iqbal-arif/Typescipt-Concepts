@@ -18,6 +18,12 @@ call date constructor with word new to instantiate an Object that brings data me
 /********** FIRST CLASS **********/
 
 class Course {
+  /***STATIC PROPERTIES**/
+  // To show properties are static use UpperCase
+  static TOTAL_COURSES = 0;
+  // Static Property as a CONST VALUE
+  static readonly TYPESCRIPT_TITLE = 'Typescript Bootcamp';
+
   //Defining the TYPES for the VARIABLE
   /*
    **** SIMPLIFYING IT ****  
@@ -45,7 +51,17 @@ class Course {
     // private creationDt = Date
     // This can be initialized while inferring as Date as well
     private creationDt = new Date(2020, 1, 1)
-  ) {}
+  ) {
+    // Accessing STATIC Property through CLASS Course
+    Course.TOTAL_COURSES++;
+  }
+
+  /**STATIC METHOD**/
+  // It is like an plain function with association to class Course NAME. Otherwise it won't work.
+  static printTitle() {
+    //to use
+    console.log(`The title of the course ${course.title}`);
+  }
 
   changeTitle() {
     this.title = '';
@@ -53,6 +69,7 @@ class Course {
   }
 
   /**SETTER**/
+  //we cannot pass the instance variable in the function defined in class. That means
 
   set title(newTitle: string) {
     if (!newTitle) {
@@ -61,6 +78,9 @@ class Course {
     this._title = newTitle;
   }
 
+  get title() {
+    return this._title;
+  }
   // Methods also refer as Behavior
   /***ADDING GET NEXT TO METHOD ALLOWS IT BE USED AS .GET METHOD: SEE NOTE I */
   /**GETTER**/
@@ -71,6 +91,8 @@ class Course {
   }
 }
 
+/**Accessing Private Static Property from outside a Class */
+// Course.TOTAL_COURSES; //error
 // Creating an Instance of Course with Class Course
 
 // This Instantiate is without Initializing Value in constructor function.
@@ -80,7 +102,8 @@ class Course {
 //   new Date(2000, 1, 1)
 // );
 // This one is after Initializing while keeping the Value Types of TS.
-const course = new Course('Typescript Bootcamp');
+const course = new Course(Course.TYPESCRIPT_TITLE);
+const angular = new Course('Angular For Beginner');
 
 // ****** NOTE II ****
 
@@ -93,8 +116,12 @@ console.log(course.age());
 // ****** NOTE I ****
 console.log(course.age);
 console.log(course);
-/*
 
+console.log(Course.TOTAL_COURSES);
+
+console.log(angular.title);
+Course.printTitle();
+/*
 
 import {HasId, HasTitle} from "./02-interfaces";
 import {CoursesService} from "./03-singleton";

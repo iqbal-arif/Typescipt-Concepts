@@ -46,13 +46,25 @@ var Course = /** @class */ (function () {
         this._title = _title;
         this.subtitle = subtitle;
         this.creationDt = creationDt;
+        // Accessing STATIC Property through CLASS Course
+        Course.TOTAL_COURSES++;
     }
+    /**STATIC METHOD**/
+    // It is like an plain function wtih association to class Course NAME. Otherwise it won't work.
+    Course.printTitle = function () {
+        //to use
+        console.log("The title of the course ".concat(course.title));
+    };
     Course.prototype.changeTitle = function () {
         this.title = '';
         // this.subtitle;
     };
     Object.defineProperty(Course.prototype, "title", {
+        get: function () {
+            return this._title;
+        },
         /**SETTER**/
+        //we cannot pass the instance variable in the function defined in class. That means
         set: function (newTitle) {
             if (!newTitle) {
                 throw 'Title cannot be empty';
@@ -74,8 +86,15 @@ var Course = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    /***STATIC PROPERTIES**/
+    // To show properties are static use UpperCase
+    Course.TOTAL_COURSES = 0;
+    // Static Property as a CONST VALUE
+    Course.TYPESCRIPT_TITLE = 'Typescript Bootcamp';
     return Course;
 }());
+/**Accessing Private Static Property from outside a Class */
+// Course.TOTAL_COURSES; //error
 // Creating an Instance of Course with Class Course
 // This Instantiate is without Initializing Value in constructor function.
 // const course = new Course(
@@ -84,7 +103,8 @@ var Course = /** @class */ (function () {
 //   new Date(2000, 1, 1)
 // );
 // This one is after Initializing while keeping the Value Types of TS.
-var course = new Course('Typescript Bootcamp');
+var course = new Course(Course.TYPESCRIPT_TITLE);
+var angular = new Course('Angular For Beginner');
 // ****** NOTE II ****
 // course.title = 'New Value';
 /*
@@ -94,8 +114,10 @@ console.log(course.age());
 // ****** NOTE I ****
 console.log(course.age);
 console.log(course);
+console.log(Course.TOTAL_COURSES);
+console.log(angular.title);
+Course.printTitle();
 /*
-
 
 import {HasId, HasTitle} from "./02-interfaces";
 import {CoursesService} from "./03-singleton";
