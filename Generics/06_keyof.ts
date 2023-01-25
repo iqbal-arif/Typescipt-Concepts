@@ -18,6 +18,9 @@ export function extractProperty<T, K extends keyof T>(data: T, property: K) {
   return data[property];
 }
 // keyOne and keyTwo knows  that there output are number and string respectively
+//const keyOne = extractProperty<Course, CourseKeys>(course, 'lessonsCount');
+// we did not have to pass"<Course, CourseKeys>" types to set the property types. It is automatically done by T, K extends keyof T
+
 const keyOne = extractProperty(course, 'lessonsCount');
 const keyTwo = extractProperty(course, 'subtitle');
 console.log(keyOne);
