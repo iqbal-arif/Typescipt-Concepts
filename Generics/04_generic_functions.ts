@@ -20,7 +20,7 @@ function freezeLesson(lesson: Lesson): Readonly<Lesson> {
   return Object.freeze(lesson);
 }
 /**GENERIC Function Definition that accommodates both freezeCourse & freezeLesson function.
- * Uses Generic function Type, Generic Input, Generic Output, & Extends Oject is used to control the Object Type. Without extends object, we could pass number,string, or boolean as a parameter to the function.
+ * Uses Generic function Type, Generic Input, Generic Output, & Extends Oject (aka TYPE CONSTRAINTS)is used to control the Object Type. Without extends object, we could pass number,string, or boolean as a parameter to the function.
  */
 function freeze<T extends object>(input: T): Readonly<T> {
   return Object.freeze(input);
