@@ -6,4 +6,5 @@ var frozen = freezeCourse({
     subtitle: 'Learn the language, build practical projects',
     lessonsCount: 100
 });
+console.log(frozen);
 //frozen.title = "";
