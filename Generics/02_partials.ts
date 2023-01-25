@@ -6,6 +6,7 @@ export interface Course {
     lessonsCount?: number;
 */
   /****PARTIAL WAY**/
+  //   For Updating a single or Mixed Multiple Properties
   title: string;
   subtitle: string;
   lessonsCount: number;
